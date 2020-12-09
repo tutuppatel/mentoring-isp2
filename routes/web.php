@@ -22,8 +22,8 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
-Route::get('/admin', 'AdminController@index');
+Route::get('/home', [\App\Http\Controllers\HomeController::class, 'index']);
+Route::get('/admin', [AdminController::class, 'index']);
 
 Route::get('admin_dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->middleware('role:admin');
 
