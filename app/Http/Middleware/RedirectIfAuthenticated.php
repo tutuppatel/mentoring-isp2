@@ -21,6 +21,8 @@ class RedirectIfAuthenticated
     {
         if (Auth::guard($guard)->check())
         {
+            //other tutu
+            //return redirect('/home');
             $role = Auth::user()->role;
 
             switch ($role)
