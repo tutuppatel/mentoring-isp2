@@ -33,7 +33,13 @@ Auth::routes();
 
 
 Route::get('admin_dashboard', [\App\Http\Controllers\Admin\DashboardController::class, 'index'])->middleware('role:admin');
-
 Route::get('mentor_dashboard', [\App\Http\Controllers\Mentor\DashboardController::class, 'index'])->middleware('role:mentor');
-
 Route::get('mentee_dashboard', [\App\Http\Controllers\Mentee\DashboardController::class, 'index'])->middleware('role:mentee');
+
+// Profile Controller
+Route::get('/profile/create',[\App\Http\Controllers\Mentee\ProfileController::class, 'create']);
+Route::post('profile', [\App\Http\Controllers\Mentee\ProfileController::class, 'store']);
+Route::get('/profile/{id}', [\App\Http\Controllers\Mentee\ProfileController::class, 'show']);
+Route::patch('/profile/{id}/edit', [\App\Http\Controllers\Mentee\ProfileController::class, 'edit']);
+
+

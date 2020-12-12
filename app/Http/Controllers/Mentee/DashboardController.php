@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mentee;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -14,6 +15,8 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('mentee.dashboard');
+        $mentors = User::where('role', 'mentor')->get();
+
+        return view('mentee.dashboard', compact('mentors'));
     }
 }
