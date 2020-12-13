@@ -13,7 +13,7 @@ class CreateVirtualSessionTable extends Migration
      */
     public function up()
     {
-        Schema::create('=VirtualSession', function (Blueprint $table) {
+        Schema::create('VirtualSession', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('session_id');
             $table->string('session_name');
@@ -30,6 +30,6 @@ class CreateVirtualSessionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('=VirtualSession');
+        Schema::dropIfExists('VirtualSession');
     }
 }
