@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Mentee;
 
 use App\Http\Controllers\Controller;
+use App\Models\SelectedMentor;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -16,7 +17,15 @@ class DashboardController extends Controller
     public function index()
     {
         $mentors = User::where('role', 'mentor')->get();
+        $hasMentor = SelectedMentor::where('user_id', auth()->user()->id);
+        $mentor_id = $hasMentor->pluck('mentor_id');
 
-        return view('mentee.dashboard', compact('mentors'));
+        $mentor = User::findOrFail($mentor_id);
+
+        return view('mentee.dashboard', [
+            'mentors' => $mentors,
+            'hasMentor' => $hasMentor->exists(),
+            'mentor' => $mentor
+        ]);
     }
 }

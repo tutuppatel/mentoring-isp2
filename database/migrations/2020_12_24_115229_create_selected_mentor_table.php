@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateVirtualSessionTable extends Migration
+class CreateSelectedMentorTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class CreateVirtualSessionTable extends Migration
      */
     public function up()
     {
-        Schema::create('VirtualSession', function (Blueprint $table) {
-            $table->bigIncrements('id');
+        Schema::create('selected_mentor', function (Blueprint $table) {
+            $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('session_name');
-            $table->string('description');
+            $table->unsignedBigInteger('mentor_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class CreateVirtualSessionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('VirtualSession');
+        Schema::dropIfExists('selected_mentor');
     }
 }

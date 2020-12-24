@@ -42,4 +42,5 @@ Route::post('profile', [\App\Http\Controllers\Mentee\ProfileController::class, '
 Route::get('/profile/{id}', [\App\Http\Controllers\Mentee\ProfileController::class, 'show']);
 Route::patch('/profile/{id}/edit', [\App\Http\Controllers\Mentee\ProfileController::class, 'edit']);
 
-
+// Mentee selects mentor
+Route::post('/select_mentor/{id}', [\App\Http\Controllers\SelectMentorController::class, 'selectMentor']);
