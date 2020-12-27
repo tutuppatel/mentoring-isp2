@@ -19,40 +19,124 @@
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-                <!-- Add icons to the links using the .nav-icon class
-                     with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Starter Pages
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
+                @auth
+                    @isRole('mentee')
                         <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fa fa-handshake"></i>
+                                <p>
+                                    Request meeting
+                                    <span class="right badge badge-danger"></span>
+                                </p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Sessions
+                                    <span class="right badge badge-danger"></span>
+                                </p>
                             </a>
                         </li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
-                        </p>
-                    </a>
-                </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-blog"></i>
+                                <p>
+                                    Blogs
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-bell"></i>
+                                <p>
+                                    Notifications
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                    @endisRole
+
+                    @isRole('mentor')
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                            <i class="nav-icon fas fa-th"></i>
+                            <p>
+                                Check Requests
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
+                                <p>
+                                    My Mentees
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-blog"></i>
+                                <p>
+                                    Blogs
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-bell"></i>
+                                <p>
+                                    Notifications
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                    @endisRole
+
+                    @isRole('admin')
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-chart-pie"></i>
+                                <p>
+                                    Reports
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Mentors
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-blog"></i>
+                                <p>
+                                    Blogs
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-users-cog"></i>
+                                <p>
+                                    Mentees
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
+                    @endisRole
+                @endauth
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

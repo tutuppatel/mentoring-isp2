@@ -4,12 +4,20 @@ namespace App\Http\Controllers\Mentee;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Models\UserProfile;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
     public function create()
     {
+        $userId = auth()->user()->id;
+        if(UserProfile::where('user_id', $userId)->exists())
+        {
+            $profile = User::findOrFail($userId)->user_profile()->get();
+
+            return view('mentee.profile.show', compact('profile'));
+        }
         return view('mentee.profile.create');
 
     }

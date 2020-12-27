@@ -41,4 +41,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserProfile::class);
     }
+
+    // for when mentee selects a mentor
+    public function selected_mentor()
+    {
+        return $this->hasOne(SelectedMentor::class);
+    }
 }
