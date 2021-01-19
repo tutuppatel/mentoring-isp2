@@ -7,6 +7,7 @@ use App\Models\Meeting;
 use App\Models\SelectedMentor;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -24,13 +25,20 @@ class DashboardController extends Controller
         $mentor = User::findOrFail($mentor_id);
 
         // check if mentee has requested meeting
-        $meeting_status = Meeting::where('user_id', auth()->user()->id)->exists();
+        $requested_meeting = Meeting::where('user_id', auth()->user()->id);
+        $meeting_status = $requested_meeting->pluck('status');
+        $status = '';
 
+        if ($requested_meeting->exists() && $meeting_status[0] === 0)
+        {
+            $status = 'pending';
+        }
 
         return view('mentee.dashboard', [
             'mentors' => $mentors,
             'hasMentor' => $hasMentor->exists(),
-            'mentor' => $mentor
+            'mentor' => $mentor,
+            'status' => $status
         ]);
     }
 }

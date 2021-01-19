@@ -246,27 +246,34 @@
                             </div>
                         </div>
                         <!-- /.tab-pane -->
-
-                        <div class="tab-pane" id="request-meeting">
-                            <form action="/request_meeting" method="post" class="form-horizontal">
-                                @csrf
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Meeting details</label>
-                                    <div class="col-sm-10">
-                                        <textarea name="meeting_details" rows="10" cols="30"></textarea>
-                                    </div>
+                        @if($status = 'pending')
+                            <div class="tab-pane" id="request-meeting">
+                                <div class="alert alert-info">
+                                    <i class="fa fa-info mr-3"></i> Appointment pending approval.
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-sm-2 col-form-label">Meeting Date</label>
-                                    <div class="col-sm-10">
-                                        <input type="date" min="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" name="meeting_date">
+                            </div>
+                        @else
+                            <div class="tab-pane" id="request-meeting">
+                                <form action="/request_meeting" method="post" class="form-horizontal">
+                                    @csrf
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Meeting details</label>
+                                        <div class="col-sm-10">
+                                            <textarea name="meeting_details" rows="10" cols="30"></textarea>
+                                        </div>
                                     </div>
-                                </div>
+                                    <div class="form-group row">
+                                        <label class="col-sm-2 col-form-label">Meeting Date</label>
+                                        <div class="col-sm-10">
+                                            <input type="date" min="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" name="meeting_date">
+                                        </div>
+                                    </div>
                                     <div class="offset-sm-2 col-sm-10">
                                         <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
-                            </form>
-                        </div>
+                                </form>
+                            </div>
+                        @endif
                         <!-- /.tab-pane -->
                     </div>
                     <!-- /.tab-content -->
