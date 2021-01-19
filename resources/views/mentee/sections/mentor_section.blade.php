@@ -32,7 +32,7 @@
                     <ul class="nav nav-pills">
                         <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Posts</a></li>
                         <li class="nav-item"><a class="nav-link" href="#timeline" data-toggle="tab">Sessions</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Report</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#request-meeting" data-toggle="tab">Request meeting</a></li>
                     </ul>
                 </div><!-- /.card-header -->
                 <div class="card-body">
@@ -247,52 +247,24 @@
                         </div>
                         <!-- /.tab-pane -->
 
-                        <div class="tab-pane" id="settings">
-                            <form class="form-horizontal">
+                        <div class="tab-pane" id="request-meeting">
+                            <form action="/request_meeting" method="post" class="form-horizontal">
+                                @csrf
                                 <div class="form-group row">
-                                    <label for="inputName" class="col-sm-2 col-form-label">Name</label>
+                                    <label class="col-sm-2 col-form-label">Meeting details</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputName" placeholder="Name">
+                                        <textarea name="meeting_details" rows="10" cols="30"></textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label for="inputEmail" class="col-sm-2 col-form-label">Email</label>
+                                    <label class="col-sm-2 col-form-label">Meeting Date</label>
                                     <div class="col-sm-10">
-                                        <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                                        <input type="date" min="{{\Carbon\Carbon::now()->format('Y-m-d')}}" class="form-control" name="meeting_date">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="inputName2" class="col-sm-2 col-form-label">Name</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputName2" placeholder="Name">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputExperience" class="col-sm-2 col-form-label">Experience</label>
-                                    <div class="col-sm-10">
-                                        <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                                    </div>
-                                </div>
-                                <div class="form-group row">
-                                    <label for="inputSkills" class="col-sm-2 col-form-label">Skills</label>
-                                    <div class="col-sm-10">
-                                        <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                                    </div>
-                                </div>
-                                <div class="form-group row">
                                     <div class="offset-sm-2 col-sm-10">
-                                        <div class="checkbox">
-                                            <label>
-                                                <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                                            </label>
-                                        </div>
+                                        <button type="submit" class="btn btn-success">Submit</button>
                                     </div>
-                                </div>
-                                <div class="form-group row">
-                                    <div class="offset-sm-2 col-sm-10">
-                                        <button type="submit" class="btn btn-danger">Submit</button>
-                                    </div>
-                                </div>
                             </form>
                         </div>
                         <!-- /.tab-pane -->

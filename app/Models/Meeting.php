@@ -16,7 +16,5 @@ class Meeting extends Model
     {
         return $this->belongsTo(User::class);
     }
-    protected $fillable = [
-        "meeting_id","mentor_id","mentee_id", "meeting_details", "meeting_date"
-    ];
+
 }

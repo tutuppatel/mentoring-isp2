@@ -11,7 +11,7 @@ use App\Models\Meeting;
 use DB;
 use Illuminate\Http\Request;
 
-class CreateMeetingController extends Controller
+class RequestMeetingController extends Controller
 {
 
 /*
@@ -34,23 +34,29 @@ class CreateMeetingController extends Controller
     public function index(){
     return view("mentee.modals.create_meeting");
     }
-    public function requestMeeting(){
-     $user_id = auth()->user()->id;
 
-      //$mentor_id = DB::select("SELECT mentor_id FROM selected_mentor WHERE user_id =  $user_id")->mentor_id;
-        //$value = SelectedMentor::find(['mentor_id'],$user_id);
+
+    public function requestMeeting(Request $request){
+        $request->validate([
+            'meeting_details' => 'required',
+            'meeting_date' => 'required',
+        ]);
+
+        $user_id = auth()->user()->id;
+
         $mentor_id = SelectedMentor::where('user_id', $user_id)->pluck('mentor_id')->all();
 
-       //dd($mentor_id);
-       $meeting = New Meeting;
-       $meeting ->meeting_id = 0;
-       $meeting ->mentor_id = $mentor_id[0];
-       $meeting -> user_id = $user_id;
-       $meeting -> meeting_details = 0;
-       $meeting ->meeting_date = " 2021-01-02";
-       $meeting -> save();
-    return view("mentee.modals.create_meeting");
+        // insert into DB
+        Meeting::create([
+            'user_id' => $user_id,
+            'mentor_id' => $mentor_id[0],
+            'meeting_details' => $request->meeting_details,
+            'meeting_date' => $request->meeting_date,
+        ]);
+
+        return redirect()->back();
     }
+
     public function viewCases(){
         $prosecutor_id = Auth::user()->prosecutor_id;
         $cases = CaseFile::all()->where(['prosecutor_id'],$prosecutor_id);;

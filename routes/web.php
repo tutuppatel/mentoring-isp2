@@ -37,8 +37,8 @@ Route::get('mentor_dashboard', [\App\Http\Controllers\Mentor\DashboardController
 Route::get('mentee_dashboard', [\App\Http\Controllers\Mentee\DashboardController::class, 'index'])->middleware('role:mentee');
 
 //request meeting
-Route::get('mentee_request_meeting', [\App\Http\Controllers\Mentee\CreateMeetingController::class, 'index'])->middleware('role:mentee');
-Route::post('mentee_request_meeting', [\App\Http\Controllers\Mentee\CreateMeetingController::class, 'createMeeting'])->middleware('role:mentee');
+Route::get('mentee_request_meeting', [\App\Http\Controllers\Mentee\RequestMeetingController::class, 'index'])->middleware('role:mentee');
+Route::post('mentee_request_meeting', [\App\Http\Controllers\Mentee\RequestMeetingController::class, 'createMeeting'])->middleware('role:mentee');
 // Profile Controller
 Route::get('/profile/create',[\App\Http\Controllers\Mentee\ProfileController::class, 'create']);
 Route::post('profile', [\App\Http\Controllers\Mentee\ProfileController::class, 'store']);
@@ -49,4 +49,7 @@ Route::patch('/profile/{id}/edit', [\App\Http\Controllers\Mentee\ProfileControll
 
 // Mentee selects mentor
 Route::post('/select_mentor/{id}', [\App\Http\Controllers\SelectMentorController::class, 'selectMentor']);
+
+// Mentee requests meeting
+Route::post('/request_meeting', [\App\Http\Controllers\Mentee\RequestMeetingController::class, 'requestMeeting']);
 

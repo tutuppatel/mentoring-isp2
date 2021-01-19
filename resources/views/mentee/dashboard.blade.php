@@ -3,9 +3,10 @@
 @section('content')
     <div class="row">
         @if($hasMentor)
-            {{-- Show the mentor section --}}
-            @include('mentee.modals.mentor_section')
+            {{-- If you've selected a mentor --}}
+            @include('mentee.sections.mentor_section')
         @else
+            {{-- If youi have no mentor come here --}}
             @forelse($mentors as $details)
                 <div class="col-md-4">
                     <!-- Widget: user widget style 1 -->

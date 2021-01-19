@@ -15,11 +15,11 @@ class CreateMeetingsTable extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('meeting_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('mentor_id');
             $table->String('meeting_details');
             $table->Date('meeting_date');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }
