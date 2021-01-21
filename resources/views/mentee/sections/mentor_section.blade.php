@@ -246,7 +246,7 @@
                             </div>
                         </div>
                         <!-- /.tab-pane -->
-                        @if($status = 'pending')
+                        @if($status === 'pending')
                             <div class="tab-pane" id="request-meeting">
                                 <div class="alert alert-info">
                                     <i class="fa fa-info mr-3"></i> Appointment pending approval.

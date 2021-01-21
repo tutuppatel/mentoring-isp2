@@ -8,6 +8,7 @@ use App\Models\User;
 
 //meeting model
 use App\Models\Meeting;
+use App\Notifications\MeetingRequests;
 use DB;
 use Illuminate\Http\Request;
 
@@ -53,6 +54,12 @@ class RequestMeetingController extends Controller
             'meeting_details' => $request->meeting_details,
             'meeting_date' => $request->meeting_date,
         ]);
+
+        // send notification to mentor
+        $mentor = User::find($mentor_id[0]);
+        $mentee = auth()->user()->name;
+
+        $mentor->notify(new MeetingRequests($mentee,$mentor_id[0]));
 
         return redirect()->back();
     }

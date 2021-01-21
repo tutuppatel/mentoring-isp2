@@ -53,3 +53,8 @@ Route::post('/select_mentor/{id}', [\App\Http\Controllers\SelectMentorController
 // Mentee requests meeting
 Route::post('/request_meeting', [\App\Http\Controllers\Mentee\RequestMeetingController::class, 'requestMeeting']);
 
+// Mentor sees notification
+Route::get('/read_notifications', [\App\Http\Controllers\UserNotificationsController::class, 'index']);
+
+// Mentor checks requests
+Route::get('/check_requests', [\App\Http\Controllers\Mentor\CheckRequestsController::class, 'index']);

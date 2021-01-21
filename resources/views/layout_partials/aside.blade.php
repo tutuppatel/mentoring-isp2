@@ -61,7 +61,7 @@
 
                     @isRole('mentor')
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/check_requests" class="nav-link">
                             <i class="nav-icon fas fa-th"></i>
                             <p>
                                 Check Requests
@@ -88,10 +88,11 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="/read_notifications" class="nav-link">
                                 <i class="nav-icon fas fa-bell"></i>
                                 <p>
                                     Notifications
+                                    <span class="badge badge-primary badge-pill">{{auth()->user()->unreadNotifications()->count()}}</span>
                                     <span class="right badge badge-danger"></span>
                                 </p>
                             </a>
