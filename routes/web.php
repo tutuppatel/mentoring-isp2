@@ -58,3 +58,8 @@ Route::get('/read_notifications', [\App\Http\Controllers\UserNotificationsContro
 
 // Mentor checks requests
 Route::get('/check_requests', [\App\Http\Controllers\Mentor\CheckRequestsController::class, 'index']);
+Route::post('/accept_request/{id}', [\App\Http\Controllers\Mentor\CheckRequestsController::class, 'acceptRequest']);
+Route::post('/reschedule_meeting/{id}', [\App\Http\Controllers\Mentor\CheckRequestsController::class, 'rescheduleMeeting']);
+
+// Mentee sees notifications
+Route::get('/mentee_notifications', [\App\Http\Controllers\UserNotificationsController::class, 'mentee_notifications']);

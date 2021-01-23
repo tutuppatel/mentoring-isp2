@@ -15,4 +15,14 @@ class UserNotificationsController extends Controller
             'notifications' => $notifications
         ]);
     }
+
+    public function mentee_notifications()
+    {
+        $notifications = auth()->user()->notifications;
+        $notifications->markAsRead();
+
+        return view('mentee.notifications.mentee_notifications', [
+            'notifications' => $notifications
+        ]);
+    }
 }

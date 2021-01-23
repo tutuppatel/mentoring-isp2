@@ -13,7 +13,6 @@
                             <th>Preferred Date</th>
                             <th>Status</th>
                             <th>Created</th>
-                            <th>Action</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -26,12 +25,30 @@
                                     @if($details->status === 0)
                                         <span class="badge badge-primary">Pending</span>
                                     @else
-                                        <span class="badge badge-primary">Accepted</span>
+                                        <span class="badge badge-success">Accepted</span>
                                     @endif
                                 </td>
                                 <td>{{$details->created_at->diffForHumans()}}</td>
-                                <td></td>
+
+                                @if($details->status === 0)
+                                    <td>
+                                        <form action="/accept_request/{{$details->id}}" method="post">
+                                                @csrf
+                                                <button type="submit" class="btn btn-success">Accept</button>
+                                        </form>
+                                    </td>
+                                @endif
+
+                                @if($details->status === 0)
+                                    <td>
+                                        <button type="button" class="btn btn-primary" data-toggle="modal"
+                                                data-target="#reschedule-{{$details->id}}">Reschedule</button>
+                                    </td>
+                                @endif
+
                             </tr>
+
+                            @include('mentor.modals.reschedule_meeting')
                         @empty
                             <tr>
                                 <td class="text-center text-danger font-w700">No requests made</td>
