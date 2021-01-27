@@ -100,5 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('bower_components/admin-lte/dist/js/adminlte.js')}}"></script>
 <!-- Scripts -->
 <script src="{{ asset('js/app.js') }}" defer></script>
+
+@yield('js_after')
 </body>
 </html>
