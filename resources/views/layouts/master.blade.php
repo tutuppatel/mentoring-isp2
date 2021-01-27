@@ -11,15 +11,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <title>{{config('app.name')}}</title>
 
+
+
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('bower_components/admin-lte/docs/assets/plugins/fontawesome-free/css/all.min.css')}}">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{asset('bower_components/admin-lte/dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+    <style>
+        .chat {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .chat li {
+            margin-bottom: 10px;
+            padding-bottom: 5px;
+            border-bottom: 1px dotted #B3A9A9;
+        }
+
+        .chat li .chat-body p {
+            margin: 0;
+            color: #777777;
+        }
+
+        .panel-body {
+            overflow-y: scroll;
+            height: 350px;
+        }
+
+        ::-webkit-scrollbar-track {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar {
+            width: 12px;
+            background-color: #F5F5F5;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+            background-color: #555;
+        }
+    </style>
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div id="app" class="wrapper">
 
 {{--Navbar--}}
 @include('layout_partials.navbar')
@@ -58,5 +98,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{asset('bower_components/admin-lte/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- AdminLTE App -->
 <script src="{{asset('bower_components/admin-lte/dist/js/adminlte.js')}}"></script>
+<!-- Scripts -->
+<script src="{{ asset('js/app.js') }}" defer></script>
 </body>
 </html>

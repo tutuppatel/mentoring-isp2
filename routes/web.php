@@ -63,3 +63,13 @@ Route::post('/reschedule_meeting/{id}', [\App\Http\Controllers\Mentor\CheckReque
 
 // Mentee sees notifications
 Route::get('/mentee_notifications', [\App\Http\Controllers\UserNotificationsController::class, 'mentee_notifications']);
+
+// Chat Routes
+Route::view('/mentee-session-chats', 'mentee.chat.chat')->middleware('auth');
+Route::view('/mentor-session-chats', 'mentor.chat.chat')->middleware('auth');
+Route::resource('messages', \App\Http\Controllers\MessageController::class)->only([
+    'index',
+    'store'
+]);
+// Route::get('messages', [\App\Http\Controllers\ChatsController::class, 'fetchMessages']);
+// Route::post('messages', [\App\Http\Controllers\ChatsController::class, 'sendMessage']);
