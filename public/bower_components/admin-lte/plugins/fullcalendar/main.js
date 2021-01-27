@@ -8149,7 +8149,7 @@ Docs & License: https://fullcalendar.io/
             forcedTzo: dateMeta.forcedTzo
         });
     }
-    function formatRange(startInput, endInput, settings // mixture of env and formatter settings
+    function formatRange(startInput, endInput, settings // mixture of .env and formatter settings
     ) {
         var dateEnv = buildDateEnv$1(typeof settings === 'object' && settings ? settings : {}); // pass in if non-null object
         var formatter = createFormatter(settings, globalDefaults.defaultRangeSeparator);

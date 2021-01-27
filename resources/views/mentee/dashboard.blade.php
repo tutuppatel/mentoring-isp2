@@ -6,7 +6,7 @@
             {{-- If you've selected a mentor --}}
             @include('mentee.sections.mentor_section')
         @else
-            {{-- If youi have no mentor come here --}}
+            {{-- If you have no mentor come here --}}
             @forelse($mentors as $details)
                 <div class="col-md-4">
                     <!-- Widget: user widget style 1 -->
@@ -18,30 +18,7 @@
                         </div>
                         <div class="card-footer">
                             <div class="row">
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
-                                        <h5 class="description-header">3,200</h5>
-                                        <span class="description-text">SALES</span>
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-sm-4 border-right">
-                                    <div class="description-block">
-                                        <h5 class="description-header">13,000</h5>
-                                        <span class="description-text">FOLLOWERS</span>
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
-                                <!-- /.col -->
-                                <div class="col-sm-4">
-                                    <div class="description-block">
-                                        <h5 class="description-header">35</h5>
-                                        <span class="description-text">PRODUCTS</span>
-                                    </div>
-                                    <!-- /.description-block -->
-                                </div>
-                                <!-- /.col -->
+
                             </div>
                             <!-- /.row -->
                             <div class="row">

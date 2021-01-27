@@ -73,3 +73,6 @@ Route::resource('messages', \App\Http\Controllers\MessageController::class)->onl
 ]);
 // Route::get('messages', [\App\Http\Controllers\ChatsController::class, 'fetchMessages']);
 // Route::post('messages', [\App\Http\Controllers\ChatsController::class, 'sendMessage']);
+
+// reports controller
+Route::get('/reports', [\App\Http\Controllers\Admin\ReportsController::class, 'index']);
