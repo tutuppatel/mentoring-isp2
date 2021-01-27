@@ -35,8 +35,8 @@ window.Echo = new Echo({
     broadcaster: Larasocket,
     token: process.env.MIX_LARASOCKET_TOKEN,
     forceTLS: true,
-    enabledTransports: ['ws', 'wss'],
-    encrypted: true
+   // enabledTransports: ['ws', 'wss'],
+   // encrypted: true
 });
 
 
