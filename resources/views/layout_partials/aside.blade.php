@@ -58,6 +58,15 @@
                                 </p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="/mentee-session-chats" class="nav-link">
+                                <i class="nav-icon fas fa-comment"></i>
+                                <p>
+                                    Chat
+                                    <span class="right badge badge-danger"></span>
+                                </p>
+                            </a>
+                        </li>
                     @endisRole
 
                     @isRole('mentor')
@@ -98,6 +107,15 @@
                                 </p>
                             </a>
                         </li>
+                    <li class="nav-item">
+                        <a href="/mentee-session-chats" class="nav-link">
+                            <i class="nav-icon fas fa-comment"></i>
+                            <p>
+                                Chat
+                                <span class="right badge badge-danger"></span>
+                            </p>
+                        </a>
+                    </li>
                     @endisRole
 
                     @isRole('admin')

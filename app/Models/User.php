@@ -47,4 +47,15 @@ class User extends Authenticatable
     {
         return $this->hasOne(SelectedMentor::class);
     }
+
+
+    /**
+     * A user can have many messages
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
+    }
 }

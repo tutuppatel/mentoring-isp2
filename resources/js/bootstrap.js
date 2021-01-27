@@ -11,7 +11,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
-} catch (e) {}
+} catch (e) { }
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
@@ -29,10 +29,19 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
  * allows your team to easily build robust real-time web applications.
  */
 
-// import Echo from 'laravel-echo';
+import Echo from 'laravel-echo';
+import Larasocket from 'larasocket-js';
+window.Echo = new Echo({
+    broadcaster: Larasocket,
+    token: process.env.MIX_LARASOCKET_TOKEN,
+    forceTLS: true,
+    enabledTransports: ['ws', 'wss'],
+    encrypted: true
+});
+
 
 // window.Pusher = require('pusher-js');
-
+//
 // window.Echo = new Echo({
 //     broadcaster: 'pusher',
 //     key: process.env.MIX_PUSHER_APP_KEY,
