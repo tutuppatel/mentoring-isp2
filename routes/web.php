@@ -16,6 +16,10 @@ use App\Http\Controllers\adminController;
 //tutu
 Route::resource('users', adminController::class);
 
+Route::resource('posts', PostController::class);
+
+Route::resource('comments', CommentController::class);
+
 Route::get('/', function () {
     return view('welcome');
 });
