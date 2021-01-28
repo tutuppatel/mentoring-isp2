@@ -102,7 +102,7 @@ class PostController extends Controller
         $post->title = $data["title"];
         $post->detail = $data["detail"];
         $post->category = $data["category"];
-        $post->update();
+        $project->update($post);
         return redirect()->route('posts.index')->with('success', 'Post updated successfully');
     }
 
