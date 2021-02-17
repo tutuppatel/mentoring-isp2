@@ -48,6 +48,7 @@ class User extends Authenticatable
         return $this->hasOne(SelectedMentor::class);
     }
 
+
     /**
      * A user can have many messages
      *
